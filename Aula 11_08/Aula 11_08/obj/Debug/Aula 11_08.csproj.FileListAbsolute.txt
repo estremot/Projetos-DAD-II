@@ -1,0 +1,11 @@
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Aula 11_08\Aula 11_08\bin\Debug\Aula 11_08.exe.config
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Aula 11_08\Aula 11_08\bin\Debug\Aula 11_08.exe
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Aula 11_08\Aula 11_08\bin\Debug\Aula 11_08.pdb
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Aula 11_08\Aula 11_08\obj\Debug\Aula 11_08.csproj.AssemblyReference.cache
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Aula 11_08\Aula 11_08\obj\Debug\Aula 11_08.csproj.SuggestedBindingRedirects.cache
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Aula 11_08\Aula 11_08\obj\Debug\Aula_11_08.frmCadastroCliente.resources
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Aula 11_08\Aula 11_08\obj\Debug\Aula_11_08.Properties.Resources.resources
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Aula 11_08\Aula 11_08\obj\Debug\Aula 11_08.csproj.GenerateResource.cache
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Aula 11_08\Aula 11_08\obj\Debug\Aula 11_08.csproj.CoreCompileInputs.cache
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Aula 11_08\Aula 11_08\obj\Debug\Aula 11_08.exe
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Aula 11_08\Aula 11_08\obj\Debug\Aula 11_08.pdb
