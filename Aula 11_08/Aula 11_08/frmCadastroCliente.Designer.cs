@@ -174,6 +174,7 @@
             this.tsbCancelar.Size = new System.Drawing.Size(23, 22);
             this.tsbCancelar.Text = "toolStripButton1";
             this.tsbCancelar.ToolTipText = "Cancelar";
+            this.tsbCancelar.Click += new System.EventHandler(this.tsbCancelar_Click);
             // 
             // tsbExcluir
             // 
@@ -184,6 +185,7 @@
             this.tsbExcluir.Size = new System.Drawing.Size(23, 22);
             this.tsbExcluir.Text = "toolStripButton1";
             this.tsbExcluir.ToolTipText = "Excluir Registro";
+            this.tsbExcluir.Click += new System.EventHandler(this.tsbExcluir_Click);
             // 
             // toolStripSeparator1
             // 
@@ -211,6 +213,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(23, 22);
             this.btnBuscar.Text = "toolStripButton1";
             this.btnBuscar.ToolTipText = "Buscar Cliente";
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label1
             // 
@@ -288,7 +291,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 304);
+            this.ClientSize = new System.Drawing.Size(585, 234);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);

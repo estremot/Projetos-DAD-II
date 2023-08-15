@@ -54,6 +54,7 @@ namespace Aula_11_08
             txtCidade.Enabled = true;
             txtUf.Enabled = true;
             mskTelefone.Enabled = true;
+            txtNome.Focus();
 
             novo = true;
         }
@@ -84,14 +85,14 @@ namespace Aula_11_08
                     if(i > 0)
                     {
                         MessageBox.Show("Registro incluído com sucesso");
-                        novo = false;
                     }
                 }catch (Exception ex)
                 {
                     MessageBox.Show("Erro: "+ex.ToString());
                 }
                 finally { 
-                    con.Close(); 
+                    con.Close();
+                    novo = false;
                 }
             }
             else
@@ -153,6 +154,138 @@ namespace Aula_11_08
             txtUf.Text = "";
             mskTelefone.Text = "";
             txtId.Text = "";
+        }
+
+        private void tsbCancelar_Click(object sender, EventArgs e)
+        {
+            tsbNovo.Enabled=true;//ativa o botão novo
+            tsbSalvar.Enabled=false;
+            tsbCancelar.Enabled=false;
+            tsbExcluir.Enabled=false;
+            btnBuscar.Enabled = true;
+            txtNome.Enabled = false;
+            txtEndereco.Enabled = false;
+            mskCEP.Enabled = false;
+            txtBairro.Enabled = false;
+            txtCidade.Enabled = false;
+            txtUf.Enabled = false;
+            mskTelefone.Enabled = false;
+
+            txtNome.Text = "";
+            txtEndereco.Text = "";
+            mskCEP.Text = "";
+            txtBairro.Text = "";
+            txtCidade.Text = "";
+            txtUf.Text = "";
+            mskTelefone.Text = "";
+        }
+
+        private void tsbExcluir_Click(object sender, EventArgs e)
+        {
+            string sqlApagar = "delete from cliente where Id = @Id";
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(sqlApagar, con);
+
+            //Passando parâmetros para a sentença SQL
+            cmd.Parameters.AddWithValue("@Id",txtId.Text);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+
+            try
+            {
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    MessageBox.Show("Cliente deletado com Sucesso!!!\n" +
+                        "Cliente: " + txtNome.Text);
+                }
+            }
+            catch(Exception ex) {
+                MessageBox.Show("Erro ao Apagar!\nErro:" + ex.ToString());
+            }
+            finally { 
+                con.Close(); 
+            }
+
+            tsbNovo.Enabled = true;//ativa o botão novo
+            tsbSalvar.Enabled = false;
+            tsbCancelar.Enabled = false;
+            tsbExcluir.Enabled = false;
+            btnBuscar.Enabled = true;
+            txtNome.Enabled = false;
+            txtEndereco.Enabled = false;
+            mskCEP.Enabled = false;
+            txtBairro.Enabled = false;
+            txtCidade.Enabled = false;
+            txtUf.Enabled = false;
+            mskTelefone.Enabled = false;
+
+            txtNome.Text = "";
+            txtEndereco.Text = "";
+            mskCEP.Text = "";
+            txtBairro.Text = "";
+            txtCidade.Text = "";
+            txtUf.Text = "";
+            mskTelefone.Text = "";
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string sqlBuscarId = "select * from cliente where Id = @Id";
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(sqlBuscarId, con);
+
+            //Passando parâmetros para a sentença SQL
+            cmd.Parameters.AddWithValue("@Id", txtBuscar.Text);
+            cmd.CommandType = CommandType.Text;
+             
+            SqlDataReader tabCliente;
+            con.Open();
+            try
+            {
+                tabCliente = cmd.ExecuteReader();
+                if (tabCliente.Read())
+                {
+                    txtId.Text = tabCliente[0].ToString();
+                    txtNome.Text = tabCliente[1].ToString();
+                    txtEndereco.Text = tabCliente[2].ToString();
+                    mskCEP.Text = tabCliente[3].ToString();
+                    txtBairro.Text = tabCliente[4].ToString();
+                    txtCidade.Text = tabCliente[5].ToString();
+                    txtUf.Text= tabCliente[6].ToString();
+                    mskTelefone.Text= tabCliente[7].ToString();
+
+                    //ativar controle dos botões
+                    tsbNovo.Enabled = false;
+                    tsbSalvar.Enabled = true;
+                    tsbCancelar.Enabled = true;
+                    tsbExcluir.Enabled = true;
+                    
+                    txtNome.Enabled = true;
+                    txtEndereco.Enabled = true;
+                    mskCEP.Enabled = true;
+                    txtBairro.Enabled = true;
+                    txtCidade.Enabled = true;
+                    txtUf.Enabled = true;
+                    mskTelefone.Enabled = true;
+                    txtNome.Focus();
+                    novo = false;
+                }
+                else
+                {
+                    MessageBox.Show("Cliente não Encontrado!");
+                }
+            }catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao Buscar!!!");
+            }
+
+            finally { 
+                con.Close(); 
+            }
+            txtBuscar.Text = string.Empty;
+
         }
     }
 }
