@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -16,9 +17,45 @@ namespace Aula_11_08
         string connectionString = @"Server=.;Database=BDCADASTRO;Trusted_Connection=True;" ;
         bool novo;
 
+        //Carrega as informações no DatagridView1 com os dados dos clientes
+        public void carregarTabela()
+        {
+            //define a instrução SQL
+            string strSql = "SELECT * FROM cliente order by nome";
+            //cria a conexão com o banco de dados
+            SqlConnection con = new SqlConnection(connectionString);
+            //cria o objeto command para executar a instruçao sql
+            SqlCommand cmd = new SqlCommand(strSql, con);
+            //abre a conexao
+            con.Open();
+            //define o tipo do comando
+            cmd.CommandType = CommandType.Text;
+            //cria um dataadapter
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //cria um objeto datatable
+            DataTable clientes = new DataTable();
+            //preenche o datatable via dataadapter
+            da.Fill(clientes);
+            //atribui o datatable ao datagridview para exibir o resultado
+            dataGridView1.DataSource = clientes;
+
+            DataRow[] linhaAtual = clientes.Select();
+
+            txtId.Text = linhaAtual[0]["Id"].ToString();
+            txtNome.Text = linhaAtual[0]["nome"].ToString();
+            txtEndereco.Text = linhaAtual[0]["endereco"].ToString();
+            mskCEP.Text = linhaAtual[0]["cep"].ToString();
+            txtBairro.Text = linhaAtual[0]["bairro"].ToString();
+            txtCidade.Text = linhaAtual[0]["cidade"].ToString();
+            txtUf.Text = linhaAtual[0]["uf"].ToString();
+            mskTelefone.Text = linhaAtual[0]["telefone"].ToString();
+        }
+
+        //Construtor da Classe frmCadastroCliente
         public frmCadastroCliente()
         {
             InitializeComponent();
+            carregarTabela();
         }
 
         private void frmCadastroCliente_Load(object sender, EventArgs e)
@@ -41,6 +78,9 @@ namespace Aula_11_08
 
         private void tsbNovo_Click(object sender, EventArgs e)
         {
+
+            limpaCampos();
+
             tsbNovo.Enabled = false;
             tsbSalvar.Enabled = true;
             tsbCancelar.Enabled = true;
@@ -57,6 +97,18 @@ namespace Aula_11_08
             txtNome.Focus();
 
             novo = true;
+        }
+
+        private void limpaCampos()
+        {
+            txtNome.Text = "";
+            txtEndereco.Text = "";
+            mskCEP.Text = "";
+            txtBairro.Text = "";
+            txtCidade.Text = "";
+            txtUf.Text = "";
+            mskTelefone.Text = "";
+            txtId.Text = "";
         }
 
         private void tsbSalvar_Click(object sender, EventArgs e)
@@ -131,6 +183,9 @@ namespace Aula_11_08
                     con.Close(); 
                 }
             }
+
+            carregarTabela();
+
             //Colocar a tela no estado inicial
             tsbNovo.Enabled = true;
             tsbSalvar.Enabled = false;
@@ -146,14 +201,6 @@ namespace Aula_11_08
             txtUf.Enabled = false;
             mskTelefone.Enabled = false;
 
-            txtNome.Text = "";
-            txtEndereco.Text = "";
-            mskCEP.Text =  "";
-            txtBairro.Text = "";
-            txtCidade.Text = "";
-            txtUf.Text = "";
-            mskTelefone.Text = "";
-            txtId.Text = "";
         }
 
         private void tsbCancelar_Click(object sender, EventArgs e)
@@ -220,28 +267,33 @@ namespace Aula_11_08
             txtUf.Enabled = false;
             mskTelefone.Enabled = false;
 
-            txtNome.Text = "";
-            txtEndereco.Text = "";
-            mskCEP.Text = "";
-            txtBairro.Text = "";
-            txtCidade.Text = "";
-            txtUf.Text = "";
-            mskTelefone.Text = "";
+            carregarTabela();
 
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            string sqlBuscarId = "select * from cliente where Id = @Id";
+            string sqlBuscarId = "select * from cliente where nome LIKE @nome order by nome";
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sqlBuscarId, con);
 
             //Passando parâmetros para a sentença SQL
-            cmd.Parameters.AddWithValue("@Id", txtBuscar.Text);
+            cmd.Parameters.AddWithValue("@nome", txtBuscar.Text+"%");
             cmd.CommandType = CommandType.Text;
              
             SqlDataReader tabCliente;
             con.Open();
+
+//*******carregando datagrid ***************************************8
+            //cria um dataadapter
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //cria um objeto datatable
+            DataTable clientes = new DataTable();
+            //preenche o datatable via dataadapter
+            da.Fill(clientes);
+            //atribui o datatable ao datagridview para exibir o resultado
+            dataGridView1.DataSource = clientes;
+//*******************fim do carregamento do datagrid
             try
             {
                 tabCliente = cmd.ExecuteReader();
@@ -286,6 +338,18 @@ namespace Aula_11_08
             }
             txtBuscar.Text = string.Empty;
 
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtId.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            txtNome.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txtEndereco.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            mskCEP.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            txtBairro.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            txtCidade.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            txtUf.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+            mskTelefone.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
         }
     }
 }
