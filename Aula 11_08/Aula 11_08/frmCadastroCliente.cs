@@ -4,11 +4,14 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
+using static System.Windows.Forms.LinkLabel;
 
 namespace Aula_11_08
 {
@@ -16,30 +19,37 @@ namespace Aula_11_08
     {
         string connectionString = @"Server=.;Database=BDCADASTRO;Trusted_Connection=True;" ;
         bool novo;
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataAdapter da;
+        DataTable clientes;
+        SqlDataReader tabCliente;
+        DataRow[] linhaAtual;
 
+        int posicao = 0;
         //Carrega as informações no DatagridView1 com os dados dos clientes
         public void carregarTabela()
         {
             //define a instrução SQL
             string strSql = "SELECT * FROM cliente order by nome";
             //cria a conexão com o banco de dados
-            SqlConnection con = new SqlConnection(connectionString);
+            con = new SqlConnection(connectionString);
             //cria o objeto command para executar a instruçao sql
-            SqlCommand cmd = new SqlCommand(strSql, con);
+            cmd = new SqlCommand(strSql, con);
             //abre a conexao
             con.Open();
             //define o tipo do comando
             cmd.CommandType = CommandType.Text;
             //cria um dataadapter
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da = new SqlDataAdapter(cmd);
             //cria um objeto datatable
-            DataTable clientes = new DataTable();
+            clientes = new DataTable();
             //preenche o datatable via dataadapter
             da.Fill(clientes);
             //atribui o datatable ao datagridview para exibir o resultado
             dataGridView1.DataSource = clientes;
 
-            DataRow[] linhaAtual = clientes.Select();
+            linhaAtual = clientes.Select();
 
             txtId.Text = linhaAtual[0]["Id"].ToString();
             txtNome.Text = linhaAtual[0]["nome"].ToString();
@@ -57,6 +67,44 @@ namespace Aula_11_08
             InitializeComponent();
             carregarTabela();
         }
+       
+        string TotalRegistros()
+        {
+            string sqlBuscarId = "select count(nome) as total from cliente";
+            con = new SqlConnection(connectionString);
+            cmd = new SqlCommand(sqlBuscarId, con);
+
+            //Passando parâmetros para a sentença SQL
+            cmd.Parameters.AddWithValue("@nome", txtBuscar.Text + "%");
+            cmd.CommandType = CommandType.Text;
+
+            con.Open();
+            string total = "";
+            try
+            {
+                tabCliente = cmd.ExecuteReader();
+                if (tabCliente.Read())
+                {
+                    total = (tabCliente[0].ToString());
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Cliente não Encontrado!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao Buscar!!!");
+            }
+
+            finally
+            {
+                con.Close();
+            }
+            
+            return total;
+        }
 
         private void frmCadastroCliente_Load(object sender, EventArgs e)
         {
@@ -73,6 +121,8 @@ namespace Aula_11_08
             txtCidade.Enabled = false;
             txtUf.Enabled = false;
             mskTelefone.Enabled = false;
+            txtCidade.Enabled = false;
+            lblTotal.Text = TotalRegistros();
 
         }
 
@@ -119,8 +169,8 @@ namespace Aula_11_08
                     "bairro, cidade, uf, telefone) values " +
                     "(@Nome, @Endereco, @Cep, @Bairro, @Cidade, @Uf, @Telefone)";
 
-                SqlConnection con = new SqlConnection(connectionString);
-                SqlCommand cmd = new SqlCommand(sql, con);
+                con = new SqlConnection(connectionString);
+                cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@Nome",txtNome.Text);
                 cmd.Parameters.AddWithValue("@Endereco", txtEndereco.Text);
                 cmd.Parameters.AddWithValue("@Cep", mskCEP.Text);
@@ -155,8 +205,8 @@ namespace Aula_11_08
                     "cidade = @Cidade, uf = @Uf, telefone = @Telefone " +
                     "where id = @Id";
 
-                SqlConnection con = new SqlConnection(connectionString);
-                SqlCommand cmd = new SqlCommand(sql_editar, con);
+                con = new SqlConnection(connectionString);
+                cmd = new SqlCommand(sql_editar, con);
                 cmd.Parameters.AddWithValue("@Nome", txtNome.Text);
                 cmd.Parameters.AddWithValue("@Endereco", txtEndereco.Text);
                 cmd.Parameters.AddWithValue("@Cep", mskCEP.Text);
@@ -230,8 +280,8 @@ namespace Aula_11_08
         private void tsbExcluir_Click(object sender, EventArgs e)
         {
             string sqlApagar = "delete from cliente where Id = @Id";
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand cmd = new SqlCommand(sqlApagar, con);
+            con = new SqlConnection(connectionString);
+            cmd = new SqlCommand(sqlApagar, con);
 
             //Passando parâmetros para a sentença SQL
             cmd.Parameters.AddWithValue("@Id",txtId.Text);
@@ -274,8 +324,8 @@ namespace Aula_11_08
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string sqlBuscarId = "select * from cliente where nome LIKE @nome order by nome";
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand cmd = new SqlCommand(sqlBuscarId, con);
+            con = new SqlConnection(connectionString);
+            cmd = new SqlCommand(sqlBuscarId, con);
 
             //Passando parâmetros para a sentença SQL
             cmd.Parameters.AddWithValue("@nome", txtBuscar.Text+"%");
@@ -286,9 +336,9 @@ namespace Aula_11_08
 
 //*******carregando datagrid ***************************************8
             //cria um dataadapter
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da = new SqlDataAdapter(cmd);
             //cria um objeto datatable
-            DataTable clientes = new DataTable();
+            clientes = new DataTable();
             //preenche o datatable via dataadapter
             da.Fill(clientes);
             //atribui o datatable ao datagridview para exibir o resultado
@@ -342,7 +392,12 @@ namespace Aula_11_08
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtId.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            int index = e.RowIndex;// get the Row Index
+            DataGridViewRow selectedRow = dataGridView1.Rows[index];
+
+           
+            txtId.Text = selectedRow.Cells[0].Value.ToString();
+            //txtId.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             txtNome.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             txtEndereco.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
             mskCEP.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
@@ -350,6 +405,80 @@ namespace Aula_11_08
             txtCidade.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
             txtUf.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
             mskTelefone.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+        
+        }
+
+        private void btnPrimeiro_Click(object sender, EventArgs e)
+        {
+            txtId.Text = linhaAtual[0]["id"].ToString();
+            txtNome.Text = linhaAtual[0]["nome"].ToString();
+            txtEndereco.Text = linhaAtual[0]["endereco"].ToString();
+            mskCEP.Text = linhaAtual[0]["cep"].ToString();
+            txtBairro.Text = linhaAtual[0]["bairro"].ToString();
+            txtCidade.Text = linhaAtual[0]["cidade"].ToString();
+            txtUf.Text = linhaAtual[0]["uf"].ToString();
+            mskTelefone.Text = linhaAtual[0]["telefone"].ToString();
+
+            posicao = 0;
+            dataGridView1.Rows[posicao].Selected = true;
+        }
+
+        private void btnUltimo_Click(object sender, EventArgs e)
+        {
+            posicao = (Int32.Parse(TotalRegistros())) -1;
+            txtId.Text = linhaAtual[posicao]["id"].ToString();
+            txtNome.Text = linhaAtual[posicao]["nome"].ToString();
+            txtEndereco.Text = linhaAtual[posicao]["endereco"].ToString();
+            mskCEP.Text = linhaAtual[posicao]["cep"].ToString();
+            txtBairro.Text = linhaAtual[posicao]["bairro"].ToString();
+            txtCidade.Text = linhaAtual[posicao]["cidade"].ToString();
+            txtUf.Text = linhaAtual[posicao]["uf"].ToString();
+            mskTelefone.Text = linhaAtual[posicao]["telefone"].ToString();
+
+            dataGridView1.Rows[posicao].Selected = true;
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            if(posicao > 0) {
+                posicao--;
+                txtId.Text = linhaAtual[posicao]["id"].ToString();
+                txtNome.Text = linhaAtual[posicao]["nome"].ToString();
+                txtEndereco.Text = linhaAtual[posicao]["endereco"].ToString();
+                mskCEP.Text = linhaAtual[posicao]["cep"].ToString();
+                txtBairro.Text = linhaAtual[posicao]["bairro"].ToString();
+                txtCidade.Text = linhaAtual[posicao]["cidade"].ToString();
+                txtUf.Text = linhaAtual[posicao]["uf"].ToString();
+                mskTelefone.Text = linhaAtual[posicao]["telefone"].ToString();
+
+                dataGridView1.Rows[posicao].Selected = true;
+            }
+           
+        }
+
+        private void btnProximo_Click(object sender, EventArgs e)
+        {
+            if(posicao < Int32.Parse(TotalRegistros())-1)
+            {
+              
+                    posicao++;
+                    txtId.Text = linhaAtual[posicao]["id"].ToString();
+                    txtNome.Text = linhaAtual[posicao]["nome"].ToString();
+                    txtEndereco.Text = linhaAtual[posicao]["endereco"].ToString();
+                    mskCEP.Text = linhaAtual[posicao]["cep"].ToString();
+                    txtBairro.Text = linhaAtual[posicao]["bairro"].ToString();
+                    txtCidade.Text = linhaAtual[posicao]["cidade"].ToString();
+                    txtUf.Text = linhaAtual[posicao]["uf"].ToString();
+                    mskTelefone.Text = linhaAtual[posicao]["telefone"].ToString();
+
+                //posicionar no grid
+                dataGridView1.Rows[posicao].Selected = true;
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

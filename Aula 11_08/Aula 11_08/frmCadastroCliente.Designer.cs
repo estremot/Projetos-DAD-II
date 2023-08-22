@@ -57,6 +57,11 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnPrimeiro = new System.Windows.Forms.ToolStripButton();
+            this.btnAnterior = new System.Windows.Forms.ToolStripButton();
+            this.btnProximo = new System.Windows.Forms.ToolStripButton();
+            this.btnUltimo = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -140,7 +145,12 @@
             this.toolStripSeparator1,
             this.lblBuscaId,
             this.txtBuscar,
-            this.btnBuscar});
+            this.btnBuscar,
+            this.toolStripSeparator2,
+            this.btnPrimeiro,
+            this.btnAnterior,
+            this.btnProximo,
+            this.btnUltimo});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(585, 25);
@@ -295,11 +305,13 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(15, 228);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(542, 180);
             this.dataGridView1.TabIndex = 17;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // lblTotal
             // 
@@ -321,6 +333,54 @@
             this.label10.Size = new System.Drawing.Size(97, 13);
             this.label10.TabIndex = 19;
             this.label10.Text = "Total Registros:";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnPrimeiro
+            // 
+            this.btnPrimeiro.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnPrimeiro.Image = ((System.Drawing.Image)(resources.GetObject("btnPrimeiro.Image")));
+            this.btnPrimeiro.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPrimeiro.Name = "btnPrimeiro";
+            this.btnPrimeiro.Size = new System.Drawing.Size(23, 22);
+            this.btnPrimeiro.Text = "toolStripButton1";
+            this.btnPrimeiro.ToolTipText = "Primeiro Registro";
+            this.btnPrimeiro.Click += new System.EventHandler(this.btnPrimeiro_Click);
+            // 
+            // btnAnterior
+            // 
+            this.btnAnterior.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnAnterior.Image = ((System.Drawing.Image)(resources.GetObject("btnAnterior.Image")));
+            this.btnAnterior.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(23, 22);
+            this.btnAnterior.Text = "Registro Anterior";
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
+            // 
+            // btnProximo
+            // 
+            this.btnProximo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnProximo.Image = ((System.Drawing.Image)(resources.GetObject("btnProximo.Image")));
+            this.btnProximo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnProximo.Name = "btnProximo";
+            this.btnProximo.Size = new System.Drawing.Size(23, 22);
+            this.btnProximo.Text = "toolStripButton1";
+            this.btnProximo.ToolTipText = "Próximo Registro";
+            this.btnProximo.Click += new System.EventHandler(this.btnProximo_Click);
+            // 
+            // btnUltimo
+            // 
+            this.btnUltimo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnUltimo.Image = ((System.Drawing.Image)(resources.GetObject("btnUltimo.Image")));
+            this.btnUltimo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnUltimo.Name = "btnUltimo";
+            this.btnUltimo.Size = new System.Drawing.Size(23, 22);
+            this.btnUltimo.Text = "toolStripButton1";
+            this.btnUltimo.ToolTipText = "Último Registro";
+            this.btnUltimo.Click += new System.EventHandler(this.btnUltimo_Click);
             // 
             // frmCadastroCliente
             // 
@@ -391,6 +451,11 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton btnPrimeiro;
+        private System.Windows.Forms.ToolStripButton btnAnterior;
+        private System.Windows.Forms.ToolStripButton btnProximo;
+        private System.Windows.Forms.ToolStripButton btnUltimo;
     }
 }
 
