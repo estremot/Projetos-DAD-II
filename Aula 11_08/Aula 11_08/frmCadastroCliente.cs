@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Aula_11_08.conexao;
+using Aula_11_08.controller;
+using Aula_11_08.model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +20,9 @@ namespace Aula_11_08
 {
     public partial class frmCadastroCliente : Form
     {
-        string connectionString = @"Server=.;Database=BDCADASTRO;Trusted_Connection=True;" ;
+   
+        string connectionString = @"Server=.;Database=BDCADASTRO;
+                                    Trusted_Connection=True;";
         bool novo;
         SqlConnection con;
         SqlCommand cmd;
@@ -32,8 +37,12 @@ namespace Aula_11_08
         {
             //define a instrução SQL
             string strSql = "SELECT * FROM cliente order by nome";
-            //cria a conexão com o banco de dados
-            con = new SqlConnection(connectionString);
+            
+            ConectaBanco conectaBanco = new ConectaBanco();
+            con = conectaBanco.conectaSqlServer();
+
+         
+
             //cria o objeto command para executar a instruçao sql
             cmd = new SqlCommand(strSql, con);
             //abre a conexao
@@ -51,14 +60,23 @@ namespace Aula_11_08
 
             linhaAtual = clientes.Select();
 
-            txtId.Text = linhaAtual[0]["Id"].ToString();
-            txtNome.Text = linhaAtual[0]["nome"].ToString();
-            txtEndereco.Text = linhaAtual[0]["endereco"].ToString();
-            mskCEP.Text = linhaAtual[0]["cep"].ToString();
-            txtBairro.Text = linhaAtual[0]["bairro"].ToString();
-            txtCidade.Text = linhaAtual[0]["cidade"].ToString();
-            txtUf.Text = linhaAtual[0]["uf"].ToString();
-            mskTelefone.Text = linhaAtual[0]["telefone"].ToString();
+            posicao = Int32.Parse(TotalRegistros()) - 1;
+            if(posicao == -1)
+            {
+                MessageBox.Show("Não Existem Registros!");
+            }
+            else
+            {
+                txtId.Text = linhaAtual[0]["Id"].ToString();
+                txtNome.Text = linhaAtual[0]["nome"].ToString();
+                txtEndereco.Text = linhaAtual[0]["endereco"].ToString();
+                mskCEP.Text = linhaAtual[0]["cep"].ToString();
+                txtBairro.Text = linhaAtual[0]["bairro"].ToString();
+                txtCidade.Text = linhaAtual[0]["cidade"].ToString();
+                txtUf.Text = linhaAtual[0]["uf"].ToString();
+                mskTelefone.Text = linhaAtual[0]["telefone"].ToString();
+            }
+           
         }
 
         //Construtor da Classe frmCadastroCliente
@@ -66,10 +84,12 @@ namespace Aula_11_08
         {
             InitializeComponent();
             carregarTabela();
+            
         }
        
         string TotalRegistros()
         {
+            //CONSULTA QUE RETORNA A QUANTIDADE DE CLIENTES NO BANCO
             string sqlBuscarId = "select count(nome) as total from cliente";
             con = new SqlConnection(connectionString);
             cmd = new SqlCommand(sqlBuscarId, con);
@@ -122,6 +142,7 @@ namespace Aula_11_08
             txtUf.Enabled = false;
             mskTelefone.Enabled = false;
             txtCidade.Enabled = false;
+            
             lblTotal.Text = TotalRegistros();
 
         }
@@ -165,37 +186,18 @@ namespace Aula_11_08
         {
             if (novo)
             {
-                string sql = "insert into cliente (nome, endereco, cep, " +
-                    "bairro, cidade, uf, telefone) values " +
-                    "(@Nome, @Endereco, @Cep, @Bairro, @Cidade, @Uf, @Telefone)";
+                Cliente cliente = new Cliente();
+                cliente.Nome = txtNome.Text;
+                cliente.Endereco = txtEndereco.Text;
+                cliente.Bairro = txtBairro.Text;
+                cliente.Cidade = txtCidade.Text;
+                cliente.Uf = txtUf.Text;
+                cliente.Telefone = mskTelefone.Text;
+                cliente.Cep = mskCEP.Text;
 
-                con = new SqlConnection(connectionString);
-                cmd = new SqlCommand(sql, con);
-                cmd.Parameters.AddWithValue("@Nome",txtNome.Text);
-                cmd.Parameters.AddWithValue("@Endereco", txtEndereco.Text);
-                cmd.Parameters.AddWithValue("@Cep", mskCEP.Text);
-                cmd.Parameters.AddWithValue("@Bairro", txtBairro.Text);
-                cmd.Parameters.AddWithValue("@Cidade", txtCidade.Text);
-                cmd.Parameters.AddWithValue("@Uf", txtUf.Text);
-                cmd.Parameters.AddWithValue("@Telefone", mskTelefone.Text);
-                cmd.CommandType = CommandType.Text;
-                con.Open();
-
-                try
-                {
-                    int i = cmd.ExecuteNonQuery();
-                    if(i > 0)
-                    {
-                        MessageBox.Show("Registro incluído com sucesso");
-                    }
-                }catch (Exception ex)
-                {
-                    MessageBox.Show("Erro: "+ex.ToString());
-                }
-                finally { 
-                    con.Close();
-                    novo = false;
-                }
+                C_Cliente c_Cliente = new C_Cliente();
+                c_Cliente.inserirDados(cliente);
+               
             }
             else
             {
@@ -250,6 +252,8 @@ namespace Aula_11_08
             txtCidade.Enabled = false;
             txtUf.Enabled = false;
             mskTelefone.Enabled = false;
+
+            lblTotal.Text = TotalRegistros();
 
         }
 
@@ -318,6 +322,7 @@ namespace Aula_11_08
             mskTelefone.Enabled = false;
 
             carregarTabela();
+            lblTotal.Text = TotalRegistros();
 
         }
 
@@ -410,32 +415,52 @@ namespace Aula_11_08
 
         private void btnPrimeiro_Click(object sender, EventArgs e)
         {
-            txtId.Text = linhaAtual[0]["id"].ToString();
-            txtNome.Text = linhaAtual[0]["nome"].ToString();
-            txtEndereco.Text = linhaAtual[0]["endereco"].ToString();
-            mskCEP.Text = linhaAtual[0]["cep"].ToString();
-            txtBairro.Text = linhaAtual[0]["bairro"].ToString();
-            txtCidade.Text = linhaAtual[0]["cidade"].ToString();
-            txtUf.Text = linhaAtual[0]["uf"].ToString();
-            mskTelefone.Text = linhaAtual[0]["telefone"].ToString();
+            posicao = Int32.Parse(TotalRegistros())-1;
 
-            posicao = 0;
-            dataGridView1.Rows[posicao].Selected = true;
+            if(posicao > 0)
+            {
+                posicao = 0;
+                txtId.Text = linhaAtual[posicao]["id"].ToString();
+                txtNome.Text = linhaAtual[posicao]["nome"].ToString();
+                txtEndereco.Text = linhaAtual[posicao]["endereco"].ToString();
+                mskCEP.Text = linhaAtual[posicao]["cep"].ToString();
+                txtBairro.Text = linhaAtual[posicao]["bairro"].ToString();
+                txtCidade.Text = linhaAtual[posicao]["cidade"].ToString();
+                txtUf.Text = linhaAtual[posicao]["uf"].ToString();
+                mskTelefone.Text = linhaAtual[posicao]["telefone"].ToString();
+
+                //seleciona no datagridview a primeira linha
+                dataGridView1.Rows[posicao].Selected = true;
+
+            }
+            else
+            {
+                MessageBox.Show("Não Existem Registros!");
+            }
+            
         }
 
         private void btnUltimo_Click(object sender, EventArgs e)
         {
             posicao = (Int32.Parse(TotalRegistros())) -1;
-            txtId.Text = linhaAtual[posicao]["id"].ToString();
-            txtNome.Text = linhaAtual[posicao]["nome"].ToString();
-            txtEndereco.Text = linhaAtual[posicao]["endereco"].ToString();
-            mskCEP.Text = linhaAtual[posicao]["cep"].ToString();
-            txtBairro.Text = linhaAtual[posicao]["bairro"].ToString();
-            txtCidade.Text = linhaAtual[posicao]["cidade"].ToString();
-            txtUf.Text = linhaAtual[posicao]["uf"].ToString();
-            mskTelefone.Text = linhaAtual[posicao]["telefone"].ToString();
+            if(posicao == -1)
+            {
+                MessageBox.Show("Não Existem Registros");
+            }
+            else
+            {
+                txtId.Text = linhaAtual[posicao]["id"].ToString();
+                txtNome.Text = linhaAtual[posicao]["nome"].ToString();
+                txtEndereco.Text = linhaAtual[posicao]["endereco"].ToString();
+                mskCEP.Text = linhaAtual[posicao]["cep"].ToString();
+                txtBairro.Text = linhaAtual[posicao]["bairro"].ToString();
+                txtCidade.Text = linhaAtual[posicao]["cidade"].ToString();
+                txtUf.Text = linhaAtual[posicao]["uf"].ToString();
+                mskTelefone.Text = linhaAtual[posicao]["telefone"].ToString();
 
-            dataGridView1.Rows[posicao].Selected = true;
+                dataGridView1.Rows[posicao].Selected = true;
+            }
+            
         }
 
         private void btnAnterior_Click(object sender, EventArgs e)

@@ -46,12 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="conexao\ConectaBanco.cs" />
+    <Compile Include="controller\C_Cliente.cs" />
+    <Compile Include="controller\I_CRUD.cs" />
     <Compile Include="frmCadastroCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCadastroCliente.Designer.cs">
       <DependentUpon>frmCadastroCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="model\Cliente.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmCadastroCliente.resx">
@@ -79,5 +83,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
