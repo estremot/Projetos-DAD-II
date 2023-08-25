@@ -1,6 +1,7 @@
 ﻿using Aula_11_08.conexao;
 using Aula_11_08.controller;
 using Aula_11_08.model;
+using Aula_11_08.view;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -504,6 +505,13 @@ namespace Aula_11_08
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnRelatorio_Click(object sender, EventArgs e)
+        {
+            //clientes é datatable
+            FrmRelCliente frmRelCliente = new FrmRelCliente(clientes);
+            frmRelCliente.ShowDialog();
         }
     }
 }

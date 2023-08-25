@@ -19,3 +19,57 @@ E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_
 E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\obj\Debug\Aula 11_08.csproj.CoreCompileInputs.cache
 E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\obj\Debug\Aula 11_08.exe
 E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\obj\Debug\Aula 11_08.pdb
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\Microsoft.ReportViewer.Common.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\Microsoft.ReportViewer.Design.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\Microsoft.SqlServer.Types.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\EnvDTE.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\stdole.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\obj\Debug\Aula_11_08.view.FrmRelCliente.resources
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\obj\Debug\Aula 11_08.csproj.CopyComplete

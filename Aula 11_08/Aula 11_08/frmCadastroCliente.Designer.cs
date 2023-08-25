@@ -46,6 +46,13 @@
             this.lblBuscaId = new System.Windows.Forms.ToolStripLabel();
             this.txtBuscar = new System.Windows.Forms.ToolStripTextBox();
             this.btnBuscar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnPrimeiro = new System.Windows.Forms.ToolStripButton();
+            this.btnAnterior = new System.Windows.Forms.ToolStripButton();
+            this.btnProximo = new System.Windows.Forms.ToolStripButton();
+            this.btnUltimo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnRelatorio = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -57,11 +64,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnPrimeiro = new System.Windows.Forms.ToolStripButton();
-            this.btnAnterior = new System.Windows.Forms.ToolStripButton();
-            this.btnProximo = new System.Windows.Forms.ToolStripButton();
-            this.btnUltimo = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -150,7 +152,9 @@
             this.btnPrimeiro,
             this.btnAnterior,
             this.btnProximo,
-            this.btnUltimo});
+            this.btnUltimo,
+            this.toolStripSeparator3,
+            this.btnRelatorio});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(585, 25);
@@ -228,6 +232,70 @@
             this.btnBuscar.Text = "toolStripButton1";
             this.btnBuscar.ToolTipText = "Buscar Cliente";
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnPrimeiro
+            // 
+            this.btnPrimeiro.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnPrimeiro.Image = ((System.Drawing.Image)(resources.GetObject("btnPrimeiro.Image")));
+            this.btnPrimeiro.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPrimeiro.Name = "btnPrimeiro";
+            this.btnPrimeiro.Size = new System.Drawing.Size(23, 22);
+            this.btnPrimeiro.Text = "toolStripButton1";
+            this.btnPrimeiro.ToolTipText = "Primeiro Registro";
+            this.btnPrimeiro.Click += new System.EventHandler(this.btnPrimeiro_Click);
+            // 
+            // btnAnterior
+            // 
+            this.btnAnterior.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnAnterior.Image = ((System.Drawing.Image)(resources.GetObject("btnAnterior.Image")));
+            this.btnAnterior.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(23, 22);
+            this.btnAnterior.Text = "Registro Anterior";
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
+            // 
+            // btnProximo
+            // 
+            this.btnProximo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnProximo.Image = ((System.Drawing.Image)(resources.GetObject("btnProximo.Image")));
+            this.btnProximo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnProximo.Name = "btnProximo";
+            this.btnProximo.Size = new System.Drawing.Size(23, 22);
+            this.btnProximo.Text = "toolStripButton1";
+            this.btnProximo.ToolTipText = "Próximo Registro";
+            this.btnProximo.Click += new System.EventHandler(this.btnProximo_Click);
+            // 
+            // btnUltimo
+            // 
+            this.btnUltimo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnUltimo.Image = ((System.Drawing.Image)(resources.GetObject("btnUltimo.Image")));
+            this.btnUltimo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnUltimo.Name = "btnUltimo";
+            this.btnUltimo.Size = new System.Drawing.Size(23, 22);
+            this.btnUltimo.Text = "toolStripButton1";
+            this.btnUltimo.ToolTipText = "Último Registro";
+            this.btnUltimo.Click += new System.EventHandler(this.btnUltimo_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorio.Image")));
+            this.btnRelatorio.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRelatorio.Name = "btnRelatorio";
+            this.btnRelatorio.Size = new System.Drawing.Size(23, 22);
+            this.btnRelatorio.Text = "toolStripButton1";
+            this.btnRelatorio.ToolTipText = "Gerar Relatório";
+            this.btnRelatorio.Click += new System.EventHandler(this.btnRelatorio_Click);
             // 
             // label1
             // 
@@ -334,54 +402,6 @@
             this.label10.TabIndex = 19;
             this.label10.Text = "Total Registros:";
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // btnPrimeiro
-            // 
-            this.btnPrimeiro.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnPrimeiro.Image = ((System.Drawing.Image)(resources.GetObject("btnPrimeiro.Image")));
-            this.btnPrimeiro.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnPrimeiro.Name = "btnPrimeiro";
-            this.btnPrimeiro.Size = new System.Drawing.Size(23, 22);
-            this.btnPrimeiro.Text = "toolStripButton1";
-            this.btnPrimeiro.ToolTipText = "Primeiro Registro";
-            this.btnPrimeiro.Click += new System.EventHandler(this.btnPrimeiro_Click);
-            // 
-            // btnAnterior
-            // 
-            this.btnAnterior.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnAnterior.Image = ((System.Drawing.Image)(resources.GetObject("btnAnterior.Image")));
-            this.btnAnterior.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAnterior.Name = "btnAnterior";
-            this.btnAnterior.Size = new System.Drawing.Size(23, 22);
-            this.btnAnterior.Text = "Registro Anterior";
-            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
-            // 
-            // btnProximo
-            // 
-            this.btnProximo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnProximo.Image = ((System.Drawing.Image)(resources.GetObject("btnProximo.Image")));
-            this.btnProximo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnProximo.Name = "btnProximo";
-            this.btnProximo.Size = new System.Drawing.Size(23, 22);
-            this.btnProximo.Text = "toolStripButton1";
-            this.btnProximo.ToolTipText = "Próximo Registro";
-            this.btnProximo.Click += new System.EventHandler(this.btnProximo_Click);
-            // 
-            // btnUltimo
-            // 
-            this.btnUltimo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnUltimo.Image = ((System.Drawing.Image)(resources.GetObject("btnUltimo.Image")));
-            this.btnUltimo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnUltimo.Name = "btnUltimo";
-            this.btnUltimo.Size = new System.Drawing.Size(23, 22);
-            this.btnUltimo.Text = "toolStripButton1";
-            this.btnUltimo.ToolTipText = "Último Registro";
-            this.btnUltimo.Click += new System.EventHandler(this.btnUltimo_Click);
-            // 
             // frmCadastroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -456,6 +476,8 @@
         private System.Windows.Forms.ToolStripButton btnAnterior;
         private System.Windows.Forms.ToolStripButton btnProximo;
         private System.Windows.Forms.ToolStripButton btnUltimo;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton btnRelatorio;
     }
 }
 
