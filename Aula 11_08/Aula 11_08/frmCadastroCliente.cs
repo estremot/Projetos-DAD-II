@@ -202,39 +202,20 @@ namespace Aula_11_08
             }
             else
             {
-                //Editar
-                string sql_editar = "update cliente set nome = @Nome, " +
-                    "endereco = @Endereco, cep = @Cep, Bairro = @Bairro, " +
-                    "cidade = @Cidade, uf = @Uf, telefone = @Telefone " +
-                    "where id = @Id";
 
-                con = new SqlConnection(connectionString);
-                cmd = new SqlCommand(sql_editar, con);
-                cmd.Parameters.AddWithValue("@Nome", txtNome.Text);
-                cmd.Parameters.AddWithValue("@Endereco", txtEndereco.Text);
-                cmd.Parameters.AddWithValue("@Cep", mskCEP.Text);
-                cmd.Parameters.AddWithValue("@Bairro", txtBairro.Text);
-                cmd.Parameters.AddWithValue("@Cidade", txtCidade.Text);
-                cmd.Parameters.AddWithValue("@Uf", txtUf.Text);
-                cmd.Parameters.AddWithValue("@Telefone", mskTelefone.Text);
-                cmd.Parameters.AddWithValue("@Id", txtId.Text);
-                cmd.CommandType = CommandType.Text;
-                con.Open();
-                try
-                {
-                    int i = cmd.ExecuteNonQuery();
-                    if(i > 0)
-                    {
-                        MessageBox.Show("Registro atualizado com sucesso");
-                    }
-                }
-                catch ( Exception ex)
-                {
-                    MessageBox.Show("Erro");
-                }
-                finally { 
-                    con.Close(); 
-                }
+                Cliente cliente = new Cliente();
+                cliente.Id = Int32.Parse(txtId.Text);
+                cliente.Nome = txtNome.Text;
+                cliente.Endereco = txtEndereco.Text;
+                cliente.Bairro = txtBairro.Text;
+                cliente.Cidade = txtCidade.Text;
+                cliente.Uf = txtUf.Text;
+                cliente.Telefone = mskTelefone.Text;
+                cliente.Cep = mskCEP.Text;
+
+                C_Cliente c_Cliente = new C_Cliente();
+                c_Cliente.editarDados(cliente);
+
             }
 
             carregarTabela();
@@ -284,30 +265,8 @@ namespace Aula_11_08
 
         private void tsbExcluir_Click(object sender, EventArgs e)
         {
-            string sqlApagar = "delete from cliente where Id = @Id";
-            con = new SqlConnection(connectionString);
-            cmd = new SqlCommand(sqlApagar, con);
-
-            //Passando parâmetros para a sentença SQL
-            cmd.Parameters.AddWithValue("@Id",txtId.Text);
-            cmd.CommandType = CommandType.Text;
-            con.Open();
-
-            try
-            {
-                int i = cmd.ExecuteNonQuery();
-                if (i > 0)
-                {
-                    MessageBox.Show("Cliente deletado com Sucesso!!!\n" +
-                        "Cliente: " + txtNome.Text);
-                }
-            }
-            catch(Exception ex) {
-                MessageBox.Show("Erro ao Apagar!\nErro:" + ex.ToString());
-            }
-            finally { 
-                con.Close(); 
-            }
+            C_Cliente cc = new C_Cliente();
+            cc.apagarDados(Int32.Parse(txtId.Text));
 
             tsbNovo.Enabled = true;//ativa o botão novo
             tsbSalvar.Enabled = false;
@@ -329,6 +288,13 @@ namespace Aula_11_08
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+
+            //C_Cliente c = new C_Cliente();
+            //Cliente x = new Cliente();
+            //x = (Cliente)c.buscarId(11);
+
+            //MessageBox.Show("Nome: " + x.Nome);
+
             string sqlBuscarId = "select * from cliente where nome LIKE @nome order by nome";
             con = new SqlConnection(connectionString);
             cmd = new SqlCommand(sqlBuscarId, con);

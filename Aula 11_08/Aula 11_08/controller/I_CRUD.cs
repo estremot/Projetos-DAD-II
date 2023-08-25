@@ -11,6 +11,12 @@ namespace Aula_11_08.controller
         void inserirDados(Object obj);
         void apagarDados(int valor);
 
+        void editarDados(Object obj);
+
+        void consultarTodos();
+
+        Object buscarId(int valor);
+
 
     }
 }

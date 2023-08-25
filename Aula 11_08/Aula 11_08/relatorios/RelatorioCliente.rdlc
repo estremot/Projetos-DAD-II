@@ -15,7 +15,7 @@
               <Width>5.3487cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.33885cm</Width>
+              <Width>6.83885cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -293,7 +293,7 @@
         <Top>0.36724cm</Top>
         <Left>0.28787cm</Left>
         <Height>1.2cm</Height>
-        <Width>17.67735cm</Width>
+        <Width>20.17734cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -304,7 +304,7 @@
     <Height>0.70963in</Height>
     <Style />
   </Body>
-  <Width>7.07292in</Width>
+  <Width>8.05717in</Width>
   <Page>
     <PageHeader>
       <Height>1.5875cm</Height>
@@ -334,7 +334,7 @@
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>0.15875cm</Top>
           <Height>1.12917cm</Height>
-          <Width>17.96521cm</Width>
+          <Width>20.46521cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -353,9 +353,40 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>1.05833cm</Height>
+      <Height>1.235cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="PageNumber">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!PageNumber</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>PageNumber</rd:DefaultName>
+          <Top>0.3175cm</Top>
+          <Left>0.28787cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.5cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
       <Style>
         <Border>
           <Style>None</Style>
