@@ -81,3 +81,6 @@ E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_
 E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
 E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
 E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\obj\Debug\Aula_11_08.FrmBase.resources
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\obj\Debug\Aula_11_08.FrmProfessor.resources
+E:\Escolas\FUNEC\2023_2\DAD II\Projetos Aula\Projetos-DAD-II\Aula 11_08\Aula 11_08\obj\Debug\Aula_11_08.view.FrmRelProfessor.resources

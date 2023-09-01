@@ -479,5 +479,11 @@ namespace Aula_11_08
             FrmRelCliente frmRelCliente = new FrmRelCliente(clientes);
             frmRelCliente.ShowDialog();
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            FrmRelProfessor frmrelprof = new FrmRelProfessor();
+            frmrelprof.ShowDialog();
+        }
     }
 }

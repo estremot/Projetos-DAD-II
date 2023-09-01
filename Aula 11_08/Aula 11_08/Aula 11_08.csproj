@@ -74,23 +74,48 @@
     <Compile Include="conexao\ConectaBanco.cs" />
     <Compile Include="controller\C_Cliente.cs" />
     <Compile Include="controller\I_CRUD.cs" />
+    <Compile Include="FrmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBase.Designer.cs">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCadastroCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCadastroCliente.Designer.cs">
       <DependentUpon>frmCadastroCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmProfessor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProfessor.Designer.cs">
+      <DependentUpon>FrmProfessor.cs</DependentUpon>
+    </Compile>
     <Compile Include="model\Cliente.cs" />
+    <Compile Include="model\Professor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="view\FrmRelProfessor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FrmRelProfessor.Designer.cs">
+      <DependentUpon>FrmRelProfessor.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\FrmRelCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="view\FrmRelCliente.Designer.cs">
       <DependentUpon>FrmRelCliente.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmBase.resx">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCadastroCliente.resx">
       <DependentUpon>frmCadastroCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProfessor.resx">
+      <DependentUpon>FrmProfessor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -103,11 +128,16 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="relatorios\RelatorioCliente.rdlc" />
+    <EmbeddedResource Include="relatorios\RelatorioProfessor.rdlc" />
     <EmbeddedResource Include="view\FrmRelCliente.resx">
       <DependentUpon>FrmRelCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\FrmRelProfessor.resx">
+      <DependentUpon>FrmRelProfessor.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Aula_11_08.model.Cliente.datasource" />
+    <None Include="Properties\DataSources\Aula_11_08.model.Professor.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

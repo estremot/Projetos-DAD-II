@@ -64,6 +64,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -154,7 +155,8 @@
             this.btnProximo,
             this.btnUltimo,
             this.toolStripSeparator3,
-            this.btnRelatorio});
+            this.btnRelatorio,
+            this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(585, 25);
@@ -402,6 +404,16 @@
             this.label10.TabIndex = 19;
             this.label10.Text = "Total Registros:";
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // frmCadastroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -478,6 +490,7 @@
         private System.Windows.Forms.ToolStripButton btnUltimo;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton btnRelatorio;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
 
