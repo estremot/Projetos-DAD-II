@@ -482,8 +482,8 @@ namespace Aula_11_08
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            FrmRelProfessor frmrelprof = new FrmRelProfessor();
-            frmrelprof.ShowDialog();
+            //FrmRelProfessor frmrelprof = new FrmRelProfessor();
+            //frmrelprof.ShowDialog();
         }
     }
 }
